@@ -10,22 +10,32 @@ import datetime
 
 class PasswordExpiry:
     #def _init__(self):
-    def test(self):
-        return 'foo';
+    error = ''
     def get_user(self):
         username = os.getenv('username')
         domain = os.getenv('userdnsdomain')
-        dn = pyad.adsearch.by_upn('%s@%s' % (username, domain))
+        try:
+            dn = pyad.adsearch.by_upn('%s@%s' % (username, domain))
+        except Exception:
+            self.error = 'Feil ved tilkobling til AD. '
+            return False
+
         user = pyad.aduser.ADUser.from_dn(dn)
         return user
     def pwd_last_set(self):
-        return self.get_user().get_password_last_set()
+        user = self.get_user()
+        if user is False:
+            return False
+        else:
+            return user.get_password_last_set()
     # Get password last set time (datetime object)
     #password_last_set = user.get_password_last_set()
 
     def message(self, max_password_age, warning_days):
         #Get the time when password was last changed
         password_last_set = self.pwd_last_set()
+        if password_last_set is False:
+            return self.error
         # Create a timedelta object from the max password age
         max_password_age_delta = datetime.timedelta(days=+max_password_age)
         # Find the password expiry (datetime object)

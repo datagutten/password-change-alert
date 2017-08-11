@@ -69,7 +69,7 @@ class PasswordBox(gui.ChangePwdFrame):
             if not message:
                 # SuccessBox(None).Show(True)
                 # self.PasswordChangeBox.hide()
-                expiry = datetime.datetime.now() + datetime.timedelta(days=+max_password_age)
+                expiry = datetime.datetime.now() + datetime.timedelta(days=+config.max_password_age)
                 expiry_string = _('Passordet ble endret og er gyldig til %s') % expiry.strftime('%d.%m.%Y %H:%M')
                 self.TopErrorText.SetLabel(expiry_string)
                 if(os.path.isfile(trigger_file)):

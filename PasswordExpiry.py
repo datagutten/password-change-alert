@@ -7,18 +7,21 @@ import gettext
 _ = gettext.gettext
 import os
 import datetime
+import win32security
 
 class PasswordExpiry:
     #def _init__(self):
     error = ''
     def get_user(self):
         username = os.getenv('username')
-        domain = os.getenv('userdnsdomain')
-        try:
-            dn = pyad.adsearch.by_upn('%s@%s' % (username, domain))
-        except Exception:
-            self.error = 'Feil ved tilkobling til AD. '
-            return False
+
+        sid = win32security.LookupAccountName(None, username)[0]
+        sidstr = win32security.ConvertSidToStringSid(sid)
+        # try:
+        dn = pyad.adsearch.by_sid(sidstr)
+        # except Exception:
+        #    self.error = 'Feil ved tilkobling til AD. '
+        #    return False
 
         user = pyad.aduser.ADUser.from_dn(dn)
         return user

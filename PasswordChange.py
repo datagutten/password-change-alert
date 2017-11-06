@@ -91,10 +91,12 @@ class SuccessBox(gui.SuccessDialog):
         self.Close()
         # gui.ChangePwdFrame.close()
 
-trigger_file = config.trigger_file_path % os.getenv('username')
+
+trigger_file = os.path.isfile(config.trigger_file_path % os.getenv('username'))
+ignore_file = os.path.isfile(config.ignore_file_path % os.getenv('username'))
 msg = PasswordExpiry.message(config.max_password_age, config.warning_days)
 
-if(os.path.isfile(trigger_file) or len(msg) > 0):
+if((ignore_file is False) and (trigger_file or len(msg) > 0)):
     # mandatory in wx, create an app, False stands for not deteriction stdin/stdout
     # refer manual for details
     app = wx.App(False)

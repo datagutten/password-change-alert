@@ -55,7 +55,7 @@ class PasswordExpiry:
         #    return _('Ditt passord utgår aldri. Bytt det gjerne likevel')
         elif password_expiry_days == 0:
             return _('Passordet går ut i dag. Bytt det umiddelbart')
-        elif password_expiry_days < warning_days and password_expiry_days>0:
+        elif warning_days > password_expiry_days > 0:
             return _('Passordet går ut om %s dager. Bytt det før det går ut') % password_expiry_days
         else:
             return ''

@@ -31,7 +31,8 @@ def change_password(username, old_password, new_password):
 
     try:
         ads_obj.ChangePassword(old_password, new_password)
-    except pythoncom.com_error, (hr, msg, exc, arg):
+    except pythoncom.com_error as e:
+            (hr, msg, exc, arg) = e.args
             # Give clearer error messages; avoid stack traces
             scode = exc[5]
             msg = exc[2]
@@ -105,9 +106,8 @@ if((ignore_file_exists is False) and
 
     # create an object of PasswordBox
     frame = PasswordBox(None)
-    if (len(msg) > 0):
-        msg=msg.decode('utf-8')
-        splitmsg=msg.split('. ')
+    if len(msg) > 0:
+        splitmsg = msg.split('. ')
         frame.TopAlertText.SetLabel(splitmsg[0])
         frame.TopErrorText.SetLabel(splitmsg[1])
     # show the frame

@@ -48,7 +48,7 @@ class PasswordExpiry:
         # Extract days until expiry as integer
         password_expiry_days = password_remaining_life.days
 
-        print password_expiry_days
+        print(password_expiry_days)
         if password_expiry_days == 1:
             return _('Passordet går ut i morgen. Bytt det nå')
         elif password_expiry_days < 0:

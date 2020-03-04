@@ -14,6 +14,8 @@ class PasswordExpiry:
     error = ''
     def get_user(self):
         username = os.getenv('username')
+        if not username:
+            raise ValueError('Unable to find username')
 
         sid = win32security.LookupAccountName(None, username)[0]
         sidstr = win32security.ConvertSidToStringSid(sid)

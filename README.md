@@ -4,19 +4,24 @@ Et verktøy i python for å varsle brukere om at passordet i ferd med å utløpe
 ## Avhengigheter
 Scriptet er skrevet for Python 2, så alle komponenter må være tilpasset det.
 
-Last ned og installer følgende:
+Last ned og installer [Python 3.8](https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe)
 
-- [Python 2.7](https://www.python.org/ftp/python/2.7.13/python-2.7.13rc1.msi)
-- [wxPython 3.0](https://sourceforge.net/projects/wxpython/files/wxPython/3.0.2.0/wxPython3.0-win32-3.0.2.0-py27.exe/download)
-- [Python for Windows Extensions](https://github.com/mhammond/pywin32/releases/download/b222/pywin32-222.win32-py2.7.exe)
+Gå til mappen med scriptet og kjør følgende kommando:
 
-Kjør følgende kommando:
-
-    pip install pyad
+    pip install -r requirements.txt
 
 Du skal nå kunne teste scriptet ved å gå til mappen med scriptet og skrive
 
     python PasswordChange.py
+
+Får du en feilmelding som følger, gjør dette: https://stackoverflow.com/questions/27404312/python-active-directory-module-no-module-named-adsi
+
+    Traceback (most recent call last):
+      File "PasswordChange.py", line 16, in <module>
+        from win32com import adsi
+      File "C:\Program Files\Python38\lib\site-packages\win32comext\adsi\__init__.py", line 25, in <module>
+        from adsi import *
+    ModuleNotFoundError: No module named 'adsi'
 
 ## Oppsett
 Endre navn på config_sample.py til config.py og tilpass innstillingene til deres miljø.

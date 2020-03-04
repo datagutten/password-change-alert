@@ -1,0 +1,11 @@
+language: sh
+os: windows
+
+before_install:
+  - choco install python
+  - choco install pywin32
+  - pip install pyinstaller
+
+script:
+  - cp config_sample.py config.py
+  - pyinstaller --onefile --distpath c:\PythonBuild --noconsole --win-private-assemblies PasswordChange.py

@@ -4,7 +4,10 @@ Et verktøy i python for å varsle brukere om at passordet i ferd med å utløpe
 ## Avhengigheter
 Scriptet er skrevet for Python 2, så alle komponenter må være tilpasset det.
 
-Last ned og installer [Python 3.8](https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe)
+Last ned og installer følgende:
+
+- [Python 3.8](https://www.python.org/ftp/python/3.8.2/python-3.8.2.exe)
+- [Python for Windows Extensions](https://github.com/mhammond/pywin32/releases/download/b227/pywin32-227.win-amd64-py3.8.exe)
 
 Gå til mappen med scriptet og kjør følgende kommando:
 

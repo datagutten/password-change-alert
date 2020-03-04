@@ -9,3 +9,8 @@ trigger_file_path = '\\\\yourserver\\chpwd$\\%s.txt'
 # Ignore password change if this file exists
 # Set to None if this feature is not used
 ignore_file_path = '\\\\yourserver\\chpwd$\\%s_ignore.txt'
+
+# Link to show at the bottom of the password reset box
+# Set to None to not show a link
+link_url = 'http://your_intranet/password_rules'
+link_text = 'Password rules'

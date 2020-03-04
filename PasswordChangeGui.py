@@ -9,7 +9,6 @@
 
 import wx
 import wx.xrc
-import wx.adv
 
 import gettext
 _ = gettext.gettext
@@ -27,7 +26,7 @@ class ChangePwdFrame ( wx.Frame ):
         self.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
         self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 
-        PasswordChangeBox = wx.BoxSizer( wx.VERTICAL )
+        self.PasswordChangeBox = wx.BoxSizer( wx.VERTICAL )
 
         TopBox = wx.FlexGridSizer( 0, 2, 0, 0 )
         TopBox.SetFlexibleDirection( wx.BOTH )
@@ -58,7 +57,7 @@ class ChangePwdFrame ( wx.Frame ):
         TopBox.Add( self.logo, 0, wx.ALL, 5 )
 
 
-        PasswordChangeBox.Add( TopBox, 1, wx.EXPAND, 5 )
+        self.PasswordChangeBox.Add( TopBox, 1, wx.EXPAND, 5 )
 
         form = wx.FlexGridSizer( 0, 2, 0, 0 )
         form.SetFlexibleDirection( wx.BOTH )
@@ -95,13 +94,10 @@ class ChangePwdFrame ( wx.Frame ):
         form.Add( self.ButtonCancel, 0, wx.ALL, 5 )
 
 
-        PasswordChangeBox.Add( form, 1, wx.EXPAND, 5 )
-
-        self.PasswordRulesLink = wx.adv.HyperlinkCtrl( self, wx.ID_ANY, _(u"Passordregler"), u"http://opplaring.as-admin.no/palogging/passordregler/", wx.DefaultPosition, wx.DefaultSize, wx.adv.HL_DEFAULT_STYLE )
-        PasswordChangeBox.Add( self.PasswordRulesLink, 0, wx.ALL, 5 )
+        self.PasswordChangeBox.Add( form, 1, wx.EXPAND, 5 )
 
 
-        self.SetSizer( PasswordChangeBox )
+        self.SetSizer( self.PasswordChangeBox )
         self.Layout()
 
         self.Centre( wx.BOTH )

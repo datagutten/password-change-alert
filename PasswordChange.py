@@ -9,6 +9,7 @@ import config
 
 # importing wx files
 import wx
+import wx.adv
 # import the GUI file
 import PasswordChangeGui as gui
 
@@ -63,6 +64,11 @@ class PasswordBox(gui.ChangePwdFrame):
 
         logo_file = os.path.join(base_path, "logo.png")
         self.logo.SetBitmap(wx.Bitmap(logo_file, wx.BITMAP_TYPE_ANY))
+
+        if config.link_text and config.link_url:
+            self.PasswordRulesLink = wx.adv.HyperlinkCtrl( self, wx.ID_ANY, _(config.link_text), config.link_url, wx.DefaultPosition, wx.DefaultSize, wx.adv.HL_DEFAULT_STYLE )
+            self.PasswordChangeBox.Add( self.PasswordRulesLink, 0, wx.ALL, 5 )
+
         # import PasswordExpiry
 
         # if msg:

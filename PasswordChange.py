@@ -2,27 +2,25 @@
 # Build:
 # pyinstaller --onefile --distpath c:\PythonBuild --noconsole --win-private-assemblies PasswordChange.py
 
-#import config file
+import datetime
+import gettext
+import os
+# import config file
 import sys
 
-import config
-
+import pythoncom
 # importing wx files
 import wx
 import wx.adv
-# import the GUI file
-import PasswordChangeGui as gui
-
-import os
-import datetime
 # win32 libraries for password change
 from win32com import adsi
-import pythoncom
 
-import gettext
-_ = gettext.gettext
-
+# import the GUI file
+import PasswordChangeGui as gui
+import config
 from PasswordExpiry import PasswordExpiry
+
+_ = gettext.gettext
 PasswordExpiry = PasswordExpiry()
 
 # Function to do the password change in AD

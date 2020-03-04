@@ -131,39 +131,39 @@ class ChangePwdFrame ( wx.Frame ):
 ###########################################################################
 
 class SuccessDialog ( wx.Dialog ):
-	
-	def __init__( self, parent ):
-		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 198,97 ), style = wx.DEFAULT_DIALOG_STYLE|wx.STAY_ON_TOP )
-		
-		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
-		
-		bSizer2 = wx.BoxSizer( wx.VERTICAL )
-		
-		self.PasswordChangedText = wx.StaticText( self, wx.ID_ANY, _(u"Passordet ble endret"), wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.PasswordChangedText.Wrap( -1 )
-		
-		self.PasswordChangedText.SetFont( wx.Font( 14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
-		
-		bSizer2.Add( self.PasswordChangedText, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-		
-		self.m_button4 = wx.Button( self, wx.ID_ANY, _(u"Ok"), wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer2.Add( self.m_button4, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-		
-		
-		self.SetSizer( bSizer2 )
-		self.Layout()
-		
-		self.Centre( wx.BOTH )
-		
-		# Connect Events
-		self.m_button4.Bind( wx.EVT_BUTTON, self.onClose )
-	
-	def __del__( self ):
-		pass
-	
-	
-	# Virtual event handlers, overide them in your derived class
-	def onClose( self, event ):
-		event.Skip()
-	
+
+    def __init__( self, parent ):
+        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 198,97 ), style = wx.DEFAULT_DIALOG_STYLE|wx.STAY_ON_TOP )
+
+        self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+
+        bSizer2 = wx.BoxSizer( wx.VERTICAL )
+
+        self.PasswordChangedText = wx.StaticText( self, wx.ID_ANY, _(u"Passordet ble endret"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.PasswordChangedText.Wrap( -1 )
+
+        self.PasswordChangedText.SetFont( wx.Font( 14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
+
+        bSizer2.Add( self.PasswordChangedText, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+        self.m_button4 = wx.Button( self, wx.ID_ANY, _(u"Ok"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer2.Add( self.m_button4, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+
+        self.SetSizer( bSizer2 )
+        self.Layout()
+
+        self.Centre( wx.BOTH )
+
+        # Connect Events
+        self.m_button4.Bind( wx.EVT_BUTTON, self.onClose )
+
+    def __del__( self ):
+        pass
+
+
+    # Virtual event handlers, overide them in your derived class
+    def onClose( self, event ):
+        event.Skip()
+
 

@@ -4,10 +4,10 @@ os: windows
 before_install:
   - choco install python
   #- choco install pywin32
-  - pip install pyinstaller
+  - python -m pip install pyinstaller
 install:
-  pip install pywin32
-  pip install -r requirements.txt
+  - python -m pip install pywin32
+  - python -m pip install -r requirements.txt
 
 script:
   - cp config_sample.py config.py

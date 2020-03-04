@@ -118,6 +118,11 @@ if config.ignore_file_path:
 else:
     ignore_file_exists = False
 
+if 'trigger' in sys.argv:
+    print('Trigger message')
+    trigger_file_exists = True
+    ignore_file_exists = False
+
 msg = PasswordExpiry.message(config.max_password_age, config.warning_days)
 
 if((ignore_file_exists is False) and

@@ -93,9 +93,17 @@ class SuccessBox(gui.SuccessDialog):
         # gui.ChangePwdFrame.close()
 
 
-trigger_file = config.trigger_file_path % os.getenv('username')
-trigger_file_exists = os.path.isfile(trigger_file)
-ignore_file_exists = os.path.isfile(config.ignore_file_path % os.getenv('username'))
+if config.trigger_file_path:
+    trigger_file = config.trigger_file_path % os.getenv('username')
+    trigger_file_exists = os.path.isfile(trigger_file)
+else:
+    trigger_file_exists = False
+
+if config.ignore_file_path:
+    ignore_file_exists = os.path.isfile(config.ignore_file_path % os.getenv('username'))
+else:
+    ignore_file_exists = False
+
 msg = PasswordExpiry.message(config.max_password_age, config.warning_days)
 
 if((ignore_file_exists is False) and

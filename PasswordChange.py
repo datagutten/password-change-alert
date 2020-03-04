@@ -3,6 +3,8 @@
 # pyinstaller --onefile --distpath c:\PythonBuild --noconsole --win-private-assemblies PasswordChange.py
 
 #import config file
+import sys
+
 import config
 
 # importing wx files
@@ -53,6 +55,14 @@ class PasswordBox(gui.ChangePwdFrame):
         # initialize parent class
         gui.ChangePwdFrame.__init__(self, parent)
         self.NewPassword1.MoveAfterInTabOrder(self.OldPassword)
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except AttributeError:
+            base_path = os.path.abspath(".")
+
+        logo_file = os.path.join(base_path, "logo.png")
+        self.logo.SetBitmap(wx.Bitmap(logo_file, wx.BITMAP_TYPE_ANY))
         # import PasswordExpiry
 
         # if msg:

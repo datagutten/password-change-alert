@@ -41,6 +41,6 @@ Installer PyInstaller med pip:
 
 Kompiler scriptet med denne kommandoen:
 
-    pyinstaller --add-data logo.png;logo.png --onefile --distpath c:\PythonBuild --noconsole --win-private-assemblies PasswordChange.py
+    pyinstaller --add-data logo.png;. --onefile --distpath c:\PythonBuild --noconsole --win-private-assemblies PasswordChange.py
 
 Scriptet skal nå finnes som C:\PythonBuild\PasswordChange.exe og kan distribueres til brukerne.

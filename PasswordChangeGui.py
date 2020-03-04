@@ -54,7 +54,7 @@ class ChangePwdFrame ( wx.Frame ):
 
         TopBox.Add( TwoTextRows, 1, wx.EXPAND, 5 )
 
-        self.logo = wx.StaticBitmap( self, wx.ID_ANY, wx.Bitmap( u"\\\\as-admin.no\\netlogon\\logo.png", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.logo = wx.StaticBitmap( self, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.DefaultSize, 0 )
         TopBox.Add( self.logo, 0, wx.ALL, 5 )
 
 

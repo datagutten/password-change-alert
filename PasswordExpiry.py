@@ -38,6 +38,8 @@ class PasswordExpiry:
 
     def message(self, max_password_age, warning_days):
         #Get the time when password was last changed
+        if max_password_age == -1:
+            return ''
         password_last_set = self.pwd_last_set()
         if password_last_set is False:
             return self.error
